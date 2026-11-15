@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>イタメグリ</title>
-<meta name="description" content="掲示板を、読みやすく。見たい掲示板のURLを追加して、板とスレをひとつのアプリで読める掲示板ビューアです。">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap">
+<meta name="description" content="スレッド形式の匿名掲示板を読むための、iPhone向けの専用ブラウザ。掲示板のURLを追加すると、板の一覧、スレの一覧、スレを読みやすい画面で読めます。">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -14,24 +14,101 @@
   <div class="icon" aria-hidden="true"></div>
   <div>
     <h1>イタメグリ</h1>
-    <p class="tagline">掲示板を、読みやすく。</p>
+    <p class="tagline">掲示板ビューア</p>
   </div>
 </header>
 
-<p>見たい掲示板のURLを追加すると、その掲示板の板とスレを、ひとつのアプリで読めるようになります。iPhone向けの掲示板ビューアです。</p>
+<span class="badge">iPhone向け・公開準備中</span>
+<p class="lead">スレッド形式の匿名掲示板を読むための、専用ブラウザです。</p>
+<p>見たい掲示板のURLをアプリに追加すると、その掲示板の板の一覧、スレの一覧、スレ(レスの並び)を、文字の読みやすい画面で読めます。アンカーをたどる、返信のつながりを見る、前回の続きから読む、といった掲示板ならではの読み方に合わせて作っています。</p>
+
+<!-- 画面の見本。アプリの画面をHTMLで描いたもの。板とスレの名前は架空 -->
+<div class="shots" aria-label="画面の見本">
+  <figure class="shot">
+    <div class="phone" aria-hidden="true">
+      <div class="big">追加した掲示板 ▾</div>
+      <div class="chips"><span class="chip">最近：天気</span><span class="chip">最近：鉄道</span></div>
+      <div class="body">
+        <div class="cat"><b>ニュース</b><span>▾</span></div>
+        <div class="boards"><span>国内ニュース</span><span>海外ニュース</span><span>科学ニュース</span><span>経済</span></div>
+        <div class="cat"><b>趣味</b><span>▸</span></div>
+        <div class="cat"><b>スポーツ</b><span>▸</span></div>
+        <div class="cat"><b>生活</b><span>▾</span></div>
+        <div class="boards"><span>天気</span><span>料理</span><span>鉄道</span><span>家電</span></div>
+        <div class="cat"><b>ゲーム</b><span>▸</span></div>
+      </div>
+      <div class="tabs"><span class="on">⌂</span><span>⌕</span><span>❐</span><span>⚙</span></div>
+    </div>
+    <figcaption>ホーム:板をカテゴリから選ぶ</figcaption>
+  </figure>
+
+  <figure class="shot">
+    <div class="phone" aria-hidden="true">
+      <div class="bar"><div class="sm">追加した掲示板</div><div class="lg">天気</div></div>
+      <div class="chips"><span class="chip on">標準</span><span class="chip">勢い順</span><span class="chip">新着順</span><span class="chip">未読あり</span></div>
+      <div class="body">
+        <div class="row"><div class="t">台風の進路予想が外れる理由を気象学的に説明する</div><div class="n"><b>141</b><span class="new">+12</span></div></div>
+        <div class="row"><div class="t">今年の初雪はいつ? 各地の予想を語るスレ</div><div class="n"><b>58</b><i>勢い 120</i></div></div>
+        <div class="row"><div class="t">雲の写真を貼っていくスレ Part12</div><div class="n"><b>733</b><i>勢い 85</i></div></div>
+        <div class="row"><div class="t">天気予報アプリ、どれを使ってる?</div><div class="n"><b>214</b><span class="new">+3</span></div></div>
+        <div class="row"><div class="t">【観測】記録的な大雨の振り返り</div><div class="n"><b>96</b><i>勢い 40</i></div></div>
+        <div class="row"><div class="t">気象予報士の試験を目指す人のスレ</div><div class="n"><b>402</b><i>勢い 22</i></div></div>
+      </div>
+      <div class="tabs"><span class="on">⌂</span><span>⌕</span><span>❐</span><span>⚙</span></div>
+    </div>
+    <figcaption>スレ一覧:新着の件数が分かる</figcaption>
+  </figure>
+
+  <figure class="shot">
+    <div class="phone" aria-hidden="true">
+      <div class="bar"><div class="sm">天気・141レス</div><div class="lg">台風の進路予想が外れる理由を気象学的に説明する</div></div>
+      <div class="body">
+        <div class="post"><div class="meta"><span class="no">2</span><span>名無しさん</span><span class="id">ID:sax9SeZf</span></div><div class="quote"><span class="a">&gt;&gt;1</span> 台風の進路予想は、数日先になるほど…</div>予報円が大きいのは外れてるんじゃなくて「この中のどこか」って意味なんだよな</div>
+        <div class="post"><div class="meta"><span class="no">3</span><span>名無しさん</span><span class="id">ID:k2PqZ0aa</span></div>去年の台風はほぼ予報どおりだった気がする。<span class="anchor">&gt;&gt;2</span> の言うとおり</div>
+        <div class="boundary">ここから新着 12件</div>
+        <div class="post"><div class="meta"><span class="no">130</span><span>名無しさん</span><span class="id">ID:Qm4xTe1c</span></div>今朝の衛星画像。目がはっきりしてる</div>
+        <div class="post"><div class="meta"><span class="no">131</span><span>名無しさん</span><span class="id">ID:sax9SeZf</span></div><div class="quote"><span class="a">&gt;&gt;130</span> 今朝の衛星画像。目が…</div>これは発達するやつ</div>
+      </div>
+      <div class="actions"><span>↓</span><span>↻</span><span>⌕</span><span>⋯</span></div>
+    </div>
+    <figcaption>スレ:前回の続きから読める</figcaption>
+  </figure>
+</div>
+<p class="muted" style="font-size:13px">画面は見本です。板やスレの名前は架空のものです。</p>
+
+<h2>使い方</h2>
+<ol class="steps">
+  <li><b>掲示板のURLを追加する。</b>掲示板のトップ、板、スレのどのURLからでも追加できます。</li>
+  <li><b>板とスレを選ぶ。</b>ホームでカテゴリから板を選ぶと、スレの一覧が開きます。</li>
+  <li><b>読む。</b>スレを開くと、前回読んだところから続きを読めます。</li>
+</ol>
 
 <h2>できること</h2>
 <ul class="features">
-  <li><b>読みやすいスレの表示</b><span>返信をたどるツリー、前回の続きが分かる新着の境目、文字の大きさと行間の調整。</span></li>
-  <li><b>まとめて探す</b><span>追加した掲示板を、ひとつの検索でまとめて探せます。URLを貼るだけでスレを開くこともできます。</span></li>
-  <li><b>履歴とブックマーク</b><span>見たスレとブックマークを日付ごとに並べ、新着の件数を表示します。</span></li>
-  <li><b>見え方を選べる</b><span>ダークモード、文字の大きさ(3段階)、画像の出し方。</span></li>
+  <li><b>レスを読みやすく</b><span>アンカー(&gt;&gt;番号)を押すと元のレスを表示。返信のつながりをツリーで表示。同じIDの書き込みをまとめて表示。画像はサムネイルで並べ、押すと拡大。</span></li>
+  <li><b>前回の続きから</b><span>どこまで読んだかを覚えていて、新しいレスとの境目に「ここから新着」を表示。スレ一覧とライブラリで新着の件数が分かります。</span></li>
+  <li><b>探す</b><span>追加した掲示板を、ひとつの検索でまとめて検索。スレの中は、言葉、画像あり、返信あり、URLありで絞り込めます。</span></li>
+  <li><b>履歴とブックマーク</b><span>見たスレを日付ごとに並べ、ブックマークしたスレの新着が分かります。</span></li>
+  <li><b>見え方を選べる</b><span>ダークモード、文字の大きさ(3段階)、本文の大きさ、行間、名前やIDの表示。</span></li>
   <li><b>データは端末の中だけ</b><span>履歴や設定は端末に保存し、運営者のサーバーには送りません。プライベートモードでは履歴も残しません。</span></li>
+</ul>
+
+<h2>料金と対応機種</h2>
+<dl class="facts">
+  <dt>料金</dt><dd>無料(広告が表示されます)</dd>
+  <dt>対応機種</dt><dd>iPhone(App Storeで公開の準備中)</dd>
+</dl>
+
+<h2>ご注意</h2>
+<ul class="notes">
+  <li>イタメグリは、掲示板を読むためのアプリです。書き込みには対応していません。</li>
+  <li>表示する内容は、各掲示板に投稿されたものです。内容についてのお問い合わせや削除の依頼は、各掲示板へお願いします。</li>
+  <li>イタメグリの運営者は、掲示板の運営者とは関係がありません。</li>
 </ul>
 
 <h2>ご意見・ご要望</h2>
 <div class="contact">
-  <p>不具合の報告や、ほしい機能のご要望は、次のアドレスまでお送りください。</p>
+  <p>不具合の報告や、ほしい機能のご要望は、アプリの設定の「このアプリについて」→「ご意見・ご要望」から送れます。メールの場合は次のアドレスへお送りください。</p>
   <a href="mailto:k4.stellar67@gmail.com?subject=%E3%82%A4%E3%82%BF%E3%83%A1%E3%82%B0%E3%83%AA%20%E3%81%94%E6%84%8F%E8%A6%8B%E3%83%BB%E3%81%94%E8%A6%81%E6%9C%9B">k4.stellar67@gmail.com</a>
 </div>
 <nav class="links"><a href="./">イタメグリについて</a><a href="privacy.html">プライバシーポリシー</a><a href="terms.html">利用規約</a></nav>
