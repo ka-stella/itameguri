@@ -1,0 +1,29 @@
+/* イタメグリの紹介ページ。色はアプリ(src/shared/ui/theme/tokens.ts)と同じ */
+:root {
+  --bg: #FAFAF7; --surface: #F1F0EB; --line: #E6E4DE; --text: #1D1C1A; --muted: #5E5C57; --accent: #2C6A89; --accent-soft: #E1EDF3;
+  --font: "Noto Sans JP", "Hiragino Sans", "Hiragino Kaku Gothic ProN", system-ui, sans-serif;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg: #161615; --surface: #1C1C1B; --line: #2C2B29; --text: #E9E7E2; --muted: #A09E98; --accent: #86BFDB; --accent-soft: #1F3440; color-scheme: dark; }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--text); font-family: var(--font); font-size: 16px; line-height: 1.8; -webkit-font-smoothing: antialiased; }
+.wrap { max-width: 680px; margin: 0 auto; padding: 48px max(20px, env(safe-area-inset-right)) 64px max(20px, env(safe-area-inset-left)); }
+header { display: flex; align-items: center; gap: 16px; margin-bottom: 40px; }
+.icon { width: 64px; height: 64px; border-radius: 15px; background: var(--accent); flex: none; }
+h1 { font-size: 28px; line-height: 1.3; margin: 0; }
+.tagline { color: var(--muted); margin: 2px 0 0; }
+h2 { font-size: 18px; margin: 40px 0 12px; }
+p { margin: 0 0 12px; }
+ul.features { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
+ul.features li { background: var(--surface); border-radius: 8px; padding: 14px 16px; }
+ul.features b { display: block; }
+ul.features span { color: var(--muted); font-size: 14px; }
+a { color: var(--accent); }
+.contact { background: var(--accent-soft); border-radius: 8px; padding: 16px; }
+.contact a { font-weight: 700; word-break: break-all; }
+nav.links { display: flex; flex-wrap: wrap; gap: 8px 20px; margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--line); font-size: 14px; }
+footer { color: var(--muted); font-size: 13px; margin-top: 20px; }
+.legal { white-space: pre-wrap; font-size: 15px; }
+.back { font-size: 14px; }
