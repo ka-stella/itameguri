@@ -2,98 +2,182 @@
 <html lang="ja">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>イタメグリ</title>
-<meta name="description" content="スレッド形式の匿名掲示板を読むための、iPhone向けの専用ブラウザ。掲示板のURLを追加すると、板の一覧、スレの一覧、スレを読みやすい画面で読めます。">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>イタメグリ - 掲示板ブラウザ</title>
+<meta name="description" content="匿名掲示板を読むためのiPhoneアプリ。前回の続きから、返信のつながりをたどりながら、長いスレを迷わず読めます。">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="lp.css">
 <link rel="icon" href="icon.png">
 <link rel="apple-touch-icon" href="icon.png">
 </head>
 <body>
-<div class="wrap">
-<header>
-  <img class="icon" src="icon.png" alt="" width="64" height="64">
-  <div>
-    <h1>イタメグリ</h1>
-    <p class="tagline">掲示板ブラウザ</p>
-  </div>
+
+<!-- 画面の画像は、画面のモックから書き出したもの(scripts/render-site-shots.ts)。板とスレの名前は架空 -->
+
+<header class="top">
+  <a class="brand" href="./"><img src="icon.png" alt="" width="28" height="28">イタメグリ</a>
+  <nav><a href="#features">機能</a><a href="#gallery">画面</a><a href="#download">ダウンロード</a></nav>
 </header>
 
-<span class="badge">iPhone向け・公開準備中</span>
-<p class="lead">スレッド形式の匿名掲示板を読むための、専用ブラウザです。</p>
-<p>見たい掲示板のURLをアプリに追加すると、その掲示板の板の一覧、スレの一覧、スレ(レスの並び)を、文字の読みやすい画面で読めます。アンカーをたどる、返信のつながりを見る、前回の続きから読む、といった掲示板ならではの読み方に合わせて作っています。</p>
+<section class="hero">
+  <div class="hero-text">
+    <img class="hero-icon" src="icon.png" alt="" width="88" height="88">
+    <h1>読みかけのスレを、<br>続きから。</h1>
+    <p>匿名掲示板を読むためのiPhoneアプリです。<br>前に読んだところから開き、返信のつながりをたどりながら、長いスレを迷わず読めます。</p>
+    <span class="store">App Storeで近日公開</span>
+  </div>
+  <div class="hero-shots">
+    <figure class="device back"><img src="shots/thread-list.png" alt="スレ一覧の画面" width="390" height="844"></figure>
+    <figure class="device front"><img src="shots/thread.png" alt="スレの画面。新しいレスの前に「ここから新着」の線が入っている" width="390" height="844"></figure>
+  </div>
+</section>
 
-<!-- 画面の見本。画面のモックを画像にしたもの(scripts/render-site-shots.ts)。板とスレの名前は架空 -->
-<div class="shots" aria-label="画面の見本">
-  <figure class="shot">
-    <img src="shots/home.png" alt="ホーム:カテゴリから板を選ぶ" width="390" height="844" loading="lazy">
-    <figcaption>ホーム:カテゴリから板を選ぶ</figcaption>
-  </figure>
-  <figure class="shot">
-    <img src="shots/thread-list.png" alt="スレ一覧:勢いと新着の件数が分かる" width="390" height="844" loading="lazy">
-    <figcaption>スレ一覧:勢いと新着の件数が分かる</figcaption>
-  </figure>
-  <figure class="shot">
-    <img src="shots/thread.png" alt="スレ:前回の続きから、新着との境目が分かる" width="390" height="844" loading="lazy">
-    <figcaption>スレ:前回の続きから、新着との境目が分かる</figcaption>
-  </figure>
-  <figure class="shot">
-    <img src="shots/tree.png" alt="返信ツリー:返信のつながりをたどる" width="390" height="844" loading="lazy">
-    <figcaption>返信ツリー:返信のつながりをたどる</figcaption>
-  </figure>
-  <figure class="shot">
-    <img src="shots/thread-search.png" alt="スレ内検索:言葉や条件で絞り込む" width="390" height="844" loading="lazy">
-    <figcaption>スレ内検索:言葉や条件で絞り込む</figcaption>
-  </figure>
-  <figure class="shot">
-    <img src="shots/search.png" alt="横断検索:追加した掲示板をまとめて探す" width="390" height="844" loading="lazy">
-    <figcaption>横断検索:追加した掲示板をまとめて探す</figcaption>
-  </figure>
-  <figure class="shot">
-    <img src="shots/thread-dark.png" alt="ダークモード" width="390" height="844" loading="lazy">
-    <figcaption>ダークモード</figcaption>
-  </figure>
+<section class="concept reveal">
+  <p>スレは長く、どこまで読んだか分からなくなります。誰が誰に返しているのかを追うのも大変です。<br>イタメグリは、そうした読みにくさを減らすために作った、読むことに絞ったアプリです。<br>見たい掲示板のURLか名前を追加すれば、板の一覧、スレの一覧、スレの順に読めます。</p>
+</section>
+
+<div id="features">
+
+<section class="feature reveal">
+  <div class="zoom boundary"><img src="shots/thread.png" alt="スレの画面の一部。「ここから新着 12件」の線と、新着へ移るボタン" width="390" height="844" loading="lazy"></div>
+  <div class="copy">
+    <h2>前回の続きから読める</h2>
+    <p>スレを開くと、前に読んだところから始まります。新しいレスの前には「ここから新着」の線が入ります。</p>
+    <p>スレ一覧と履歴には、前に見てから増えた件数が出ます。</p>
+  </div>
+</section>
+
+<section class="feature flip reveal">
+  <figure class="device large"><img src="shots/tree.png" alt="返信ツリーの画面" width="390" height="844" loading="lazy"></figure>
+  <div class="copy">
+    <h2>返信のつながりが見える</h2>
+    <p>番号の横の「↳3」は、そのレスについた返信の数です。押すと、返信がツリーで開きます。</p>
+    <p>本文の「&gt;&gt;12」を押せば、元のレスをその場で確かめられます。読んでいる場所からは動きません。</p>
+  </div>
+</section>
+
+<section class="feature reveal">
+  <div class="pair">
+    <figure class="device"><img src="shots/thread-search.png" alt="スレ内検索の画面" width="390" height="844" loading="lazy"></figure>
+    <figure class="device"><img src="shots/search.png" alt="横断検索の画面" width="390" height="844" loading="lazy"></figure>
+  </div>
+  <div class="copy">
+    <h2>スレの中も、掲示板をまたいでも探せる</h2>
+    <p>スレの中は、言葉のほか「画像あり」「返信あり」「URLあり」で絞り込めます。結果を押すと、そのレスの位置へ移ります。</p>
+    <p>追加した掲示板をまとめて検索することもできます。スレのURLを貼れば、そのまま開きます。</p>
+  </div>
+</section>
+
+<section class="feature flip reveal">
+  <figure class="device"><img src="shots/library.png" alt="ライブラリの画面。見たスレが日付ごとに並ぶ" width="390" height="844" loading="lazy"></figure>
+  <div class="copy">
+    <h2>履歴とブックマーク</h2>
+    <p>見たスレは日付ごとに残ります。ブックマークしたスレも、新着の件数と一緒に並びます。</p>
+    <p>履歴を残したくないときは、プライベートモードにできます。</p>
+  </div>
+</section>
+
+<section class="feature reveal">
+  <div class="pair">
+    <figure class="device"><img src="shots/ng.png" alt="NGにしたレスが1行に縮んだスレ" width="390" height="844" loading="lazy"></figure>
+    <figure class="device"><img src="shots/mosaic.png" alt="画像にモザイクがかかったスレ" width="390" height="844" loading="lazy"></figure>
+  </div>
+  <div class="copy">
+    <h2>見たくないものは隠せる</h2>
+    <p>ID、名前、トリップ、言葉、スレのタイトルでNGにできます。言葉とタイトルは正規表現も使えます。</p>
+    <p>画像は、注意の言葉を含むレスのものだけ、またはすべてをぼかせます。押せば、その画像だけ外れます。</p>
+  </div>
+</section>
+
 </div>
-<p class="muted" style="font-size:13px">画面は見本です。板やスレの名前は架空のものです。</p>
 
-<h2>使い方</h2>
-<ol class="steps">
-  <li><b>掲示板のURLを追加する。</b>掲示板のトップ、板、スレのどのURLからでも追加できます。</li>
-  <li><b>板とスレを選ぶ。</b>ホームでカテゴリから板を選ぶと、スレの一覧が開きます。</li>
-  <li><b>読む。</b>スレを開くと、前回読んだところから続きを読めます。</li>
-</ol>
+<section class="ease">
+  <h2 class="reveal">読むことの邪魔をしない</h2>
 
-<h2>できること</h2>
-<ul class="features">
-  <li><b>レスを読みやすく</b><span>アンカー(&gt;&gt;番号)を押すと元のレスを表示。返信のつながりをツリーで表示。同じIDの書き込みをまとめて表示。画像はサムネイルで並べ、押すと拡大。</span></li>
-  <li><b>前回の続きから</b><span>どこまで読んだかを覚えていて、新しいレスとの境目に「ここから新着」を表示。スレ一覧とライブラリで新着の件数が分かります。</span></li>
-  <li><b>探す</b><span>追加した掲示板を、ひとつの検索でまとめて検索。スレの中は、言葉、画像あり、返信あり、URLありで絞り込めます。</span></li>
-  <li><b>履歴とブックマーク</b><span>見たスレを日付ごとに並べ、ブックマークしたスレの新着が分かります。</span></li>
-  <li><b>見え方を選べる</b><span>ダークモード、文字の大きさ(3段階)、本文の大きさ、行間、名前やIDの表示。</span></li>
-  <li><b>データは端末の中だけ</b><span>履歴や設定は端末に保存し、運営者のサーバーには送りません。プライベートモードでは履歴も残しません。</span></li>
-</ul>
+  <div class="ease-row reveal">
+    <div class="before-after">
+      <figure><div class="device small"><img src="shots/bars-shown.png" alt="見出しと下部の操作が出ている画面" width="390" height="844" loading="lazy"></div><figcaption>ふだん</figcaption></figure>
+      <span class="arrow" aria-hidden="true">→</span>
+      <figure><div class="device small"><img src="shots/bars-hidden.png" alt="見出しと下部の操作が隠れた画面" width="390" height="844" loading="lazy"></div><figcaption>下へ読んだとき</figcaption></figure>
+    </div>
+    <div class="copy">
+      <h3>下へ読むと、画面が本文だけになる</h3>
+      <p>見出しと下の操作が引っ込み、本文が広くなります。上へ戻すか、上の細い帯を押すと戻ります。</p>
+      <p>「全画面で読む」にすると、時計や電池の表示も消えます。</p>
+    </div>
+  </div>
 
-<h2>料金と対応機種</h2>
-<dl class="facts">
-  <dt>料金</dt><dd>無料</dd>
-  <dt>対応機種</dt><dd>iPhone(App Storeで公開の準備中)</dd>
-</dl>
+  <div class="ease-row flip reveal">
+    <div class="zoom menu">
+      <img src="shots/longpress.png" alt="レスを長押ししたときのメニュー" width="390" height="844" loading="lazy">
+    </div>
+    <div class="copy">
+      <h3>長押しで、そのレスのことをまとめて</h3>
+      <p>返信ツリー、同じIDの書き込み、「ここまで読んだことにする」、本文のコピー、NGへの追加。レスを長押しすると、下から出ます。</p>
+    </div>
+  </div>
 
-<h2>ご注意</h2>
-<ul class="notes">
-  <li>イタメグリは、掲示板を読むためのアプリです。書き込みには対応していません。</li>
-  <li>表示する内容は、各掲示板に投稿されたものです。内容についてのお問い合わせや削除の依頼は、各掲示板へお願いします。</li>
-  <li>イタメグリの運営者は、掲示板の運営者とは関係がありません。</li>
-</ul>
+  <div class="ease-row reveal">
+    <div class="device small dark"><img src="shots/appearance-dark.png" alt="外観の設定。ダークの背景と文字の明るさのスライダー" width="390" height="844" loading="lazy"></div>
+    <div class="copy">
+      <h3>夜でも、目に合わせて</h3>
+      <p>ダークモードでは、背景の暗さと文字の明るさを別々に決められます。強調の色は12の組から選べます。色の見え方が違っても区別しやすい組もあります。</p>
+      <p>本文の大きさ、行間、名前や日時やIDを出すかも変えられます。</p>
+    </div>
+  </div>
+</section>
 
-<h2>ご意見・ご要望</h2>
-<div class="contact">
-  <p>不具合の報告や、ほしい機能のご要望は、アプリの設定の「このアプリについて」→「ご意見・ご要望」から送れます。メールの場合は次のアドレスへお送りください。</p>
-  <a href="mailto:k4.stellar67@gmail.com?subject=%E3%82%A4%E3%82%BF%E3%83%A1%E3%82%B0%E3%83%AA%20%E3%81%94%E6%84%8F%E8%A6%8B%E3%83%BB%E3%81%94%E8%A6%81%E6%9C%9B">k4.stellar67@gmail.com</a>
-</div>
-<nav class="links"><a href="./">イタメグリについて</a><a href="privacy.html">プライバシーポリシー</a><a href="terms.html">利用規約</a></nav>
-<footer>© 2026 イタメグリ</footer>
-</div>
+<section class="gallery" id="gallery">
+  <h2 class="reveal">画面</h2>
+  <div class="strip">
+    <figure><div class="device"><img src="shots/home.png" alt="" width="390" height="844" loading="lazy"></div><figcaption>ホーム</figcaption></figure>
+    <figure><div class="device"><img src="shots/thread-list.png" alt="" width="390" height="844" loading="lazy"></div><figcaption>スレ一覧</figcaption></figure>
+    <figure><div class="device"><img src="shots/thread.png" alt="" width="390" height="844" loading="lazy"></div><figcaption>スレ</figcaption></figure>
+    <figure><div class="device"><img src="shots/tree.png" alt="" width="390" height="844" loading="lazy"></div><figcaption>返信ツリー</figcaption></figure>
+    <figure><div class="device"><img src="shots/thread-dark.png" alt="" width="390" height="844" loading="lazy"></div><figcaption>ダークモード</figcaption></figure>
+    <figure><div class="device"><img src="shots/fullscreen.png" alt="" width="390" height="844" loading="lazy"></div><figcaption>全画面で読む</figcaption></figure>
+    <figure><div class="device"><img src="shots/search.png" alt="" width="390" height="844" loading="lazy"></div><figcaption>横断検索</figcaption></figure>
+    <figure><div class="device"><img src="shots/archive.png" alt="" width="390" height="844" loading="lazy"></div><figcaption>過去ログ</figcaption></figure>
+    <figure><div class="device"><img src="shots/library.png" alt="" width="390" height="844" loading="lazy"></div><figcaption>ライブラリ</figcaption></figure>
+    <figure><div class="device"><img src="shots/settings.png" alt="" width="390" height="844" loading="lazy"></div><figcaption>設定</figcaption></figure>
+  </div>
+  <p class="note">画面は開発中のものです。板やスレの名前、書き込みは架空です。</p>
+</section>
+
+<section class="download" id="download">
+  <img src="icon.png" alt="" width="96" height="96">
+  <h2>イタメグリ</h2>
+  <p>iPhone向け。無料でダウンロードできます。</p>
+  <span class="store">App Storeで近日公開</span>
+</section>
+
+<footer class="bottom">
+  <ul class="notes">
+    <li>読むためのアプリです。書き込みには対応していません。</li>
+    <li>表示する内容は、各掲示板に投稿されたものです。内容のお問い合わせや削除の依頼は、各掲示板へお願いします。</li>
+    <li>イタメグリの運営者は、各掲示板の運営者とは関係がありません。</li>
+    <li>アプリの中に広告が表示されます。</li>
+  </ul>
+  <p class="contact">ご意見・ご要望は、アプリの設定の「このアプリについて」から、またはメール(<a href="mailto:k4.stellar67@gmail.com?subject=%E3%82%A4%E3%82%BF%E3%83%A1%E3%82%B0%E3%83%AA%20%E3%81%94%E6%84%8F%E8%A6%8B%E3%83%BB%E3%81%94%E8%A6%81%E6%9C%9B">k4.stellar67@gmail.com</a>)でお送りください。</p>
+  <nav><a href="privacy.html">プライバシーポリシー</a><a href="terms.html">利用規約</a></nav>
+  <p class="copyright">© 2026 イタメグリ</p>
+</footer>
+
+<script>
+  // スクロールして画面に入った部分を、静かに表示する
+  (function () {
+    var items = document.querySelectorAll(".reveal");
+    if (!("IntersectionObserver" in window) || matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      items.forEach(function (el) { el.classList.add("shown"); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add("shown"); io.unobserve(e.target); }
+      });
+    }, { rootMargin: "0px 0px -10% 0px" });
+    items.forEach(function (el) { io.observe(el); });
+  })();
+</script>
 </body>
 </html>

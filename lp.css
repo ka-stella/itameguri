@@ -1,0 +1,126 @@
+/* 紹介ページ(index.html)の見た目。色はアプリと同じ(src/shared/ui/theme/tokens.ts のライト) */
+:root {
+  --bg: #FAFAF7;
+  --band: #F1F0EB;
+  --line: #E6E4DE;
+  --text: #1D1C1A;
+  --muted: #5E5C57;
+  --accent: #2C6A89;
+  --bezel: #1D1C1A;
+  --font: "Noto Sans JP", "Hiragino Sans", "Hiragino Kaku Gothic ProN", system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--bg); color: var(--text); font-family: var(--font); font-size: 16px; line-height: 1.9; -webkit-font-smoothing: antialiased; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+h1, h2, h3 { font-weight: 700; letter-spacing: 0.01em; margin: 0; }
+p { margin: 0 0 12px; }
+figure { margin: 0; }
+
+/* 上の帯 */
+.top { position: sticky; top: 0; z-index: 10; display: flex; align-items: center; justify-content: space-between; max-width: 1080px; margin: 0 auto; padding: 14px 32px; background: var(--bg); }
+.brand { display: flex; align-items: center; gap: 10px; color: var(--text); font-weight: 700; }
+.brand img { border-radius: 7px; }
+.brand:hover { text-decoration: none; }
+.top nav { display: flex; gap: 28px; font-size: 14px; }
+.top nav a { color: var(--muted); }
+
+/* 端末の枠。画像はモックの390×844を2倍で書き出したもの */
+.device { width: 280px; padding: 9px; border-radius: 46px; background: var(--bezel); box-shadow: 0 24px 48px -24px rgba(29, 28, 26, 0.45); flex: none; }
+.device img { display: block; width: 100%; height: auto; aspect-ratio: 390 / 844; border-radius: 37px; background: var(--bg); }
+.device.large { width: 320px; }
+.device.small { width: 240px; }
+
+/* 最初の画面 */
+.hero { display: flex; align-items: center; justify-content: space-between; gap: 48px; max-width: 1080px; margin: 0 auto; padding: 56px 32px 88px; }
+.hero-text { max-width: 460px; }
+.hero-icon { display: block; border-radius: 20px; margin-bottom: 28px; }
+.hero h1 { font-size: 42px; line-height: 1.4; margin-bottom: 20px; }
+.hero p { color: var(--muted); font-size: 17px; margin-bottom: 28px; }
+.hero-shots { position: relative; width: 470px; height: 640px; flex: none; }
+.hero-shots .device { position: absolute; }
+.hero-shots .front { right: 0; top: 0; }
+.hero-shots .back { left: 0; top: 56px; transform: scale(0.9); transform-origin: left top; opacity: 0.95; }
+
+/* App Storeへの導線(公開までは押せない) */
+.store { display: inline-block; padding: 10px 20px; border-radius: 10px; background: var(--text); color: var(--bg); font-size: 14px; font-weight: 500; }
+
+/* 作った理由 */
+.concept { background: var(--band); padding: 72px 32px; }
+.concept p { max-width: 680px; margin: 0 auto; font-size: 18px; line-height: 2.1; }
+
+/* 機能。画像と文を左右交互に置く */
+.feature { display: flex; align-items: center; justify-content: center; gap: 80px; max-width: 1080px; margin: 0 auto; padding: 96px 32px; }
+.feature.flip { flex-direction: row-reverse; }
+.feature + .feature { border-top: 1px solid var(--line); }
+.copy { max-width: 400px; }
+.copy h2 { font-size: 28px; line-height: 1.5; margin-bottom: 18px; }
+.copy h3 { font-size: 21px; line-height: 1.5; margin-bottom: 14px; }
+.copy p { color: var(--muted); }
+.pair { display: flex; gap: 24px; align-items: flex-start; }
+.pair .device { width: 250px; }
+.pair .device:nth-child(2) { margin-top: 48px; }
+
+/* 使いやすさ */
+.ease { background: var(--band); padding: 96px 32px; }
+.ease > h2 { text-align: center; font-size: 28px; margin-bottom: 64px; }
+.ease-row { display: flex; align-items: center; justify-content: center; gap: 72px; max-width: 1000px; margin: 0 auto; }
+.ease-row + .ease-row { margin-top: 96px; }
+.ease-row.flip { flex-direction: row-reverse; }
+.before-after { display: flex; align-items: center; gap: 16px; }
+.before-after figcaption { text-align: center; color: var(--muted); font-size: 13px; margin-top: 12px; }
+.before-after .device { width: 210px; }
+.arrow { color: var(--muted); font-size: 20px; }
+
+/* 長押しのメニューは、画面の下半分を大きく切り出して見せる */
+.zoom { width: 420px; height: 420px; border-radius: 28px; overflow: hidden; background: var(--bg); box-shadow: 0 24px 48px -24px rgba(29, 28, 26, 0.35); flex: none; }
+.zoom img { display: block; width: 100%; height: auto; transform: translateY(var(--y)); }
+.zoom.menu { --y: -45.5%; height: 400px; }
+.zoom.boundary { --y: -52%; height: 440px; }
+
+/* 画面の一覧。横に流す */
+.gallery { padding: 96px 0 72px; }
+.gallery > h2 { text-align: center; font-size: 28px; margin-bottom: 48px; }
+.strip { display: flex; gap: 28px; overflow-x: auto; padding: 8px 32px 24px; scroll-snap-type: x mandatory; scrollbar-width: thin; }
+.strip figure { flex: none; scroll-snap-align: center; }
+.strip figure:first-child { margin-left: auto; }
+.strip figure:last-child { margin-right: auto; }
+.strip .device { width: 230px; transition: transform 0.25s ease; }
+.strip figure:hover .device { transform: translateY(-6px); }
+.strip figcaption { text-align: center; color: var(--muted); font-size: 13px; margin-top: 14px; }
+.note { text-align: center; color: var(--muted); font-size: 13px; margin-top: 16px; }
+
+/* 最後 */
+.download { text-align: center; padding: 88px 32px; border-top: 1px solid var(--line); }
+.download img { border-radius: 22px; }
+.download h2 { font-size: 26px; margin: 20px 0 6px; }
+.download p { color: var(--muted); margin-bottom: 24px; }
+
+.bottom { max-width: 760px; margin: 0 auto; padding: 40px 32px 56px; border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; line-height: 1.8; }
+.notes { margin: 0 0 16px; padding-left: 1.2em; }
+.contact { margin-bottom: 16px; }
+.bottom nav { display: flex; gap: 20px; margin-bottom: 8px; }
+
+/* スクロールで入ったときに静かに出す(index.htmlのスクリプト) */
+.reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal.shown { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal { opacity: 1; transform: none; transition: none; }
+}
+
+/* 幅の狭い画面では縦に積む(崩れない程度) */
+@media (max-width: 860px) {
+  .top { padding: 12px 20px; }
+  .top nav { display: none; }
+  .hero, .feature, .feature.flip, .ease-row, .ease-row.flip { flex-direction: column; gap: 40px; padding-left: 20px; padding-right: 20px; }
+  .hero h1 { font-size: 32px; }
+  .hero-shots { width: 100%; max-width: 360px; height: 560px; }
+  .hero-shots .device { width: 240px; }
+  .pair .device { width: 46%; }
+  .pair { width: 100%; justify-content: center; }
+  .before-after .device { width: 140px; }
+  .zoom { width: 100%; max-width: 360px; height: 360px; }
+}
