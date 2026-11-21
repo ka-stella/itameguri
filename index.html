@@ -16,7 +16,7 @@
   <img class="icon" src="icon.png" alt="" width="64" height="64">
   <div>
     <h1>イタメグリ</h1>
-    <p class="tagline">掲示板ビューア</p>
+    <p class="tagline">掲示板ブラウザ</p>
   </div>
 </header>
 
@@ -24,56 +24,35 @@
 <p class="lead">スレッド形式の匿名掲示板を読むための、専用ブラウザです。</p>
 <p>見たい掲示板のURLをアプリに追加すると、その掲示板の板の一覧、スレの一覧、スレ(レスの並び)を、文字の読みやすい画面で読めます。アンカーをたどる、返信のつながりを見る、前回の続きから読む、といった掲示板ならではの読み方に合わせて作っています。</p>
 
-<!-- 画面の見本。アプリの画面をHTMLで描いたもの。板とスレの名前は架空 -->
+<!-- 画面の見本。画面のモックを画像にしたもの(scripts/render-site-shots.ts)。板とスレの名前は架空 -->
 <div class="shots" aria-label="画面の見本">
   <figure class="shot">
-    <div class="phone" aria-hidden="true">
-      <div class="big">追加した掲示板 ▾</div>
-      <div class="chips"><span class="chip">最近：天気</span><span class="chip">最近：鉄道</span></div>
-      <div class="body">
-        <div class="cat"><b>ニュース</b><span>▾</span></div>
-        <div class="boards"><span>国内ニュース</span><span>海外ニュース</span><span>科学ニュース</span><span>経済</span></div>
-        <div class="cat"><b>趣味</b><span>▸</span></div>
-        <div class="cat"><b>スポーツ</b><span>▸</span></div>
-        <div class="cat"><b>生活</b><span>▾</span></div>
-        <div class="boards"><span>天気</span><span>料理</span><span>鉄道</span><span>家電</span></div>
-        <div class="cat"><b>ゲーム</b><span>▸</span></div>
-      </div>
-      <div class="tabs"><span class="on">⌂</span><span>⌕</span><span>❐</span><span>⚙</span></div>
-    </div>
-    <figcaption>ホーム:板をカテゴリから選ぶ</figcaption>
+    <img src="shots/home.png" alt="ホーム:カテゴリから板を選ぶ" width="390" height="844" loading="lazy">
+    <figcaption>ホーム:カテゴリから板を選ぶ</figcaption>
   </figure>
-
   <figure class="shot">
-    <div class="phone" aria-hidden="true">
-      <div class="bar"><div class="sm">追加した掲示板</div><div class="lg">天気</div></div>
-      <div class="chips"><span class="chip on">標準</span><span class="chip">勢い順</span><span class="chip">新着順</span><span class="chip">未読あり</span></div>
-      <div class="body">
-        <div class="row"><div class="t">台風の進路予想が外れる理由を気象学的に説明する</div><div class="n"><b>141</b><span class="new">+12</span></div></div>
-        <div class="row"><div class="t">今年の初雪はいつ? 各地の予想を語るスレ</div><div class="n"><b>58</b><i>勢い 120</i></div></div>
-        <div class="row"><div class="t">雲の写真を貼っていくスレ Part12</div><div class="n"><b>733</b><i>勢い 85</i></div></div>
-        <div class="row"><div class="t">天気予報アプリ、どれを使ってる?</div><div class="n"><b>214</b><span class="new">+3</span></div></div>
-        <div class="row"><div class="t">【観測】記録的な大雨の振り返り</div><div class="n"><b>96</b><i>勢い 40</i></div></div>
-        <div class="row"><div class="t">気象予報士の試験を目指す人のスレ</div><div class="n"><b>402</b><i>勢い 22</i></div></div>
-      </div>
-      <div class="tabs"><span class="on">⌂</span><span>⌕</span><span>❐</span><span>⚙</span></div>
-    </div>
-    <figcaption>スレ一覧:新着の件数が分かる</figcaption>
+    <img src="shots/thread-list.png" alt="スレ一覧:勢いと新着の件数が分かる" width="390" height="844" loading="lazy">
+    <figcaption>スレ一覧:勢いと新着の件数が分かる</figcaption>
   </figure>
-
   <figure class="shot">
-    <div class="phone" aria-hidden="true">
-      <div class="bar"><div class="sm">天気・141レス</div><div class="lg">台風の進路予想が外れる理由を気象学的に説明する</div></div>
-      <div class="body">
-        <div class="post"><div class="meta"><span class="no">2</span><span>名無しさん</span><span class="id">ID:sax9SeZf</span></div><div class="quote"><span class="a">&gt;&gt;1</span> 台風の進路予想は、数日先になるほど…</div>予報円が大きいのは外れてるんじゃなくて「この中のどこか」って意味なんだよな</div>
-        <div class="post"><div class="meta"><span class="no">3</span><span>名無しさん</span><span class="id">ID:k2PqZ0aa</span></div>去年の台風はほぼ予報どおりだった気がする。<span class="anchor">&gt;&gt;2</span> の言うとおり</div>
-        <div class="boundary">ここから新着 12件</div>
-        <div class="post"><div class="meta"><span class="no">130</span><span>名無しさん</span><span class="id">ID:Qm4xTe1c</span></div>今朝の衛星画像。目がはっきりしてる</div>
-        <div class="post"><div class="meta"><span class="no">131</span><span>名無しさん</span><span class="id">ID:sax9SeZf</span></div><div class="quote"><span class="a">&gt;&gt;130</span> 今朝の衛星画像。目が…</div>これは発達するやつ</div>
-      </div>
-      <div class="actions"><span>↓</span><span>↻</span><span>⌕</span><span>⋯</span></div>
-    </div>
-    <figcaption>スレ:前回の続きから読める</figcaption>
+    <img src="shots/thread.png" alt="スレ:前回の続きから、新着との境目が分かる" width="390" height="844" loading="lazy">
+    <figcaption>スレ:前回の続きから、新着との境目が分かる</figcaption>
+  </figure>
+  <figure class="shot">
+    <img src="shots/tree.png" alt="返信ツリー:返信のつながりをたどる" width="390" height="844" loading="lazy">
+    <figcaption>返信ツリー:返信のつながりをたどる</figcaption>
+  </figure>
+  <figure class="shot">
+    <img src="shots/thread-search.png" alt="スレ内検索:言葉や条件で絞り込む" width="390" height="844" loading="lazy">
+    <figcaption>スレ内検索:言葉や条件で絞り込む</figcaption>
+  </figure>
+  <figure class="shot">
+    <img src="shots/search.png" alt="横断検索:追加した掲示板をまとめて探す" width="390" height="844" loading="lazy">
+    <figcaption>横断検索:追加した掲示板をまとめて探す</figcaption>
+  </figure>
+  <figure class="shot">
+    <img src="shots/thread-dark.png" alt="ダークモード" width="390" height="844" loading="lazy">
+    <figcaption>ダークモード</figcaption>
   </figure>
 </div>
 <p class="muted" style="font-size:13px">画面は見本です。板やスレの名前は架空のものです。</p>
